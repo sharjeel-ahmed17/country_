@@ -1,5 +1,5 @@
 
-import { countries } from '@/app/data/countries';
+// import { countries } from '@/app/data/countries';
 
 export default function CountryPage({ params }) {
     // const country = countries.find((c) => c.id === params.id);
