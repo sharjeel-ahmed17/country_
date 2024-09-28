@@ -1,35 +1,19 @@
 import { countries } from "@/app/data/countries"
 import Link from "next/link"
 
+
+const countryList = countries.slice(0, 5).map((item, i) => {
+    return <li key={i} className="hover:bg-slate-500 capitalize">
+        {i + 1} <Link className="p-4" href={`/country/${item.name}`}>{item.name.toLocaleLowerCase()}</Link>
+    </li>
+})
+
 export default function Country() {
     return (
         <>
-            <h1 className="bg-red-200">country list </h1>
-            <ul>
-                <li>
-                    {
-                        countries.slice(0, 5).map((item, i) => {
-                            return <li key={i}>
-                                <Link href={`/country/${item.name}`}>{item.name.toLocaleLowerCase()}</Link>
-                            </li>
-                        })
-                    }
+            <h1 className="bg-gray-200 text-center p-4 hover:text-green-500 mb-2">Country List  </h1>
+            <ul>{countryList}</ul>
 
-                </li>
-                {/* massi code */}
-                {/* <li>
-                    <Link href="/country/india">india</Link>
-                </li>
-                <li>
-                    <Link href="/country/bangladesh">bangladesh</Link>
-                </li>
-                <li>
-                    <Link href="/country/srilanka">srilanka</Link>
-                </li>
-                <li>
-                    <Link href="/country/afghanistan">afghanistan</Link>
-                </li> */}
-            </ul>
         </>
     )
 }
